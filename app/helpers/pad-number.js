@@ -10,6 +10,6 @@ export function padNumber(number, size) {
   return str;
 }
 
-export default Ember.HTMLBars.makeBoundHelper(function(params) {
+export default Ember.Helper.helper(function(params) {
   return padNumber(params[0], params[1]);
 });

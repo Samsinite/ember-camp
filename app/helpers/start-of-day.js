@@ -1,12 +1,5 @@
+import Ember from 'ember';
 import moment from 'moment';
-
-function read(object) {
-  if (object && object.isStream) {
-    return object.value();
-  } else {
-    return object;
-  }
-}
 
 export function startOfDay(day) {
   if (day) {
@@ -16,6 +9,6 @@ export function startOfDay(day) {
   }
 }
 
-export default function(params) {
+export default Ember.Helper.helper(function(params) {
   return startOfDay(read(params[0]));
-}
+});

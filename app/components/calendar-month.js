@@ -84,7 +84,7 @@ export default Ember.Component.extend({
 
       for (i = 1; i <= daysInMonth; i++) {
         day = moment({year: yearNumber, month: monthNumber, day: i});
-        row.push(day);
+        row.push({ day: day });
 
         /* 6 is the last day of the week (saturday)
          * TODO: Make the number/start day of week flexible
@@ -97,14 +97,14 @@ export default Ember.Component.extend({
 
       // Append remaining null values to last row
       for (i = row.length; i < 7; i++) {
-        row.push(null);
+        row.push({ day: null });
       }
       rows.push(row);
 
       // Prepend remaining null values to first row
       row = rows[0];
       for (i = row.length; i < 7; i++) {
-        row.unshift(null);
+        row.unshift({ day: null });
       }
 
       return rows;

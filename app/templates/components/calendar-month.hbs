@@ -18,8 +18,8 @@
   <tbody>
     {{#each rows as |row|}}
       <tr>
-        {{#each row as |dayOfWeek|}}
-          <td {{action 'selectDay' dayOfWeek bubbles=false}} class="{{if (is-today dayOfWeek) 'today' ''}} {{if (time-equal (start-of-day dayOfWeek) (start-of-day selectedDay)) 'selected' ''}} {{if dayOfWeek 'weekday' ''}}">{{yield dayOfWeek}}</td>
+        {{#each row key="@guid" as |dayOfWeek|}}
+          <td {{action 'selectDay' dayOfWeek.day bubbles=false}} class="{{if (is-today dayOfWeek.day) 'today' ''}} {{if (moment-compare "isSame" dayOfWeek.day selectedDay "day") 'selected' ''}} {{if dayOfWeek.day 'weekday' ''}}">{{yield dayOfWeek.day}}</td>
         {{/each}}
       </tr>
     {{/each}}

@@ -5,7 +5,7 @@ var Router = Ember.Router.extend({
   location: config.locationType
 });
 
-export default Router.map(function() {
+Router.map(function() {
   this.route('scheduler', { path: '/' });
   this.route('stop-watch');
 
@@ -25,3 +25,5 @@ export default Router.map(function() {
     this.route('new');
   });
 });
+
+export default Router;

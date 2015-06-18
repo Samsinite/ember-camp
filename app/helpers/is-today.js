@@ -1,14 +1,7 @@
+import Ember from 'ember';
 import moment from 'moment';
 import { startOfDay } from './start-of-day';
 import { timeEqual } from './time-equal';
-
-function read(object) {
-  if (object && object.isStream) {
-    return object.value();
-  } else {
-    return object;
-  }
-}
 
 export function isToday(day) {
   if (day) {
@@ -19,7 +12,7 @@ export function isToday(day) {
   }
 }
 
-export default function(params) {
-  return isToday(read(params[0]));
-}
+export default Ember.Helper.helper(function(params) {
+  return isToday(params[0]);
+});
 
